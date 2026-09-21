@@ -1,1 +1,52 @@
+<!DOCTYPE html>
+<html lang="eu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wordle Jolasa</title>
+  <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
 
+  <!-- Formulario inicial -->
+  <div id="formulario">       <!-- El div general  -->
+    <h1>Wordle Jolasa</h1> 
+    <div class="grupo">       <!-- Segundo div -->
+      <label for="selectIntentos">Intentos</label>
+      <select id="selectIntentos">
+        <option value="5">5</option>
+        <option value="6" selected>6</option>
+        <option value="7">7</option>
+      </select>
+    </div>
+
+    <div class="grupo">  <!-- Segundo div, La parte del numero letras --> 
+      <label for="selectLetras">nº de letras</label>
+      <select id="selectLetras">
+        <option value="4">4</option>
+        <option value="5" selected>5</option> <!-- Para q quede el 5 ya seleccionado de por si --> 
+        <option value="6">6</option>
+        <option value="7">7</option>
+      </select>
+    </div>
+
+    <button id="btnJugar">Jugar</button>
+
+  </div>
+
+  <!-- Zona de juego -->
+  <div id="joko-eremua" class="oculto">
+    <div id="tablero"></div>
+    <div id="teklatua"></div>
+  </div>
+
+<!-- 3. Pantalla final e historial -->
+  <div id="historia" class="oculto">
+    <h2 id="resultado-titulo"></h2>
+    <div id="historia-zerrenda"></div>
+    <button id="btnBerriro">Berriro jolastu</button>
+  </div>
+
+  <script src="js/code.js"></script>
+</body>
+</html>

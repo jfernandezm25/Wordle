@@ -1,1 +1,159 @@
+/* 1. Variables CSS para los colores (Requisito del trabajo) */
+:root {
+  --ok: #6aaa64;       /* Verde */
+  --existe: #c9b458;   /* Amarillo */
+  --no: #787c7e;       /* Gris */
+  --primario: #0066ff; /* Azul de tu formulario */
+  --border: #ccc;
+  --bg-tecla: #d3d6da;
+}
 
+/* 2. Tu CSS del Body y Formulario */
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #f8f9fa;
+}
+
+#formulario {
+  text-align: center;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  width: 280px;
+}
+
+.grupo {
+  margin-bottom: 20px;
+  color: var(--primario);
+}
+
+label {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+select, button {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  margin-top: 8px;
+  box-sizing: border-box;
+}
+
+select {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+button {
+  background: var(--primario);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* 3. Estilos del Tablero de Juego (CSS Grid) */
+#joko-eremua {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#tablero {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.fila {
+  display: grid;
+  gap: 6px;
+  justify-content: center;
+}
+
+.casilla {
+  width: 50px;
+  height: 50px;
+  border: 2px solid var(--border);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: white;
+  border-radius: 6px;
+  text-align: center;
+}
+
+/* 4. Clases CSS de validación (ok, no, existe) */
+.casilla.ok, .tecla.ok {
+  background-color: var(--ok);
+  color: white;
+  border-color: var(--ok);
+}
+
+.casilla.existe, .tecla.existe {
+  background-color: var(--existe);
+  color: white;
+  border-color: var(--existe);
+}
+
+.casilla.no, .tecla.no {
+  background-color: var(--no);
+  color: white;
+  border-color: var(--no);
+}
+
+/* 5. Estilos del Teclado Birtuala (Flexbox) */
+#teklatua {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.teklatua-lerroa {
+  display: flex;
+  gap: 6px;
+}
+
+.tecla {
+  min-width: 38px;
+  height: 48px;
+  padding: 0 8px;
+  background-color: var(--bg-tecla);
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+/* 6. Pantalla de Historial (localStorage) */
+#historia {
+  text-align: center;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  width: 300px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.partida-item {
+  border-bottom: 1px solid #eee;
+  padding: 8px 0;
+  text-align: left;
+  font-size: 14px;
+}
