@@ -157,3 +157,26 @@ button {
   text-align: left;
   font-size: 14px;
 }
+.tecla {
+  width: auto;          /* anula el 100% del button general */
+  min-width: 46px;
+  height: 58px;
+  margin: 0;            /* anula el margin-top del button general */
+  padding: 0 10px;
+  background-color: var(--bg-tecla);
+  color: #000;          /* letras negras sobre la cajita gris */
+  border-radius: 6px;
+  font-size: 14px;
+}
+.oculto { display: none; }  
+.tecla {
+  width: auto;
+  min-width: 46px;
+  height: 58px;
+  margin: 0;
+  padding: 0 10px;
+  background-color: var(--bg-tecla);
+  color: #000;
+  border-radius: 6px;
+  font-size: 18px;
+}

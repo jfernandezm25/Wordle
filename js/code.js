@@ -11,7 +11,7 @@ let juegoTerminado = false;
 const obtenerPalabra = async (longitud) => { //declarar variables que solo van a volver a reasignarse
   //ASYNC PARA EVITAR QUE SE CONGELE LA PAGINA --> QUE REQUIERE RED(BUSCAR LA PALABRA)
   try { //para ejecutar la API
-    const respuesta = await fetch(`https://random-word-api.herokuapp.com/word?number=1&lang=es&length=${longitud}`); 
+   const respuesta = await fetch(`https://words-api-sy2x.onrender.com/api/word?lang=es&length=${longitud}&number=1`);
     //la variable longitud la coge de la variable longitud que se pasa (getElementbyid selectletras y seugun las letras busca palabra cn esas letras)
     const datuak = await respuesta.json(); 
     return datuak[0].toUpperCase(); 
@@ -100,6 +100,7 @@ const jugar = async () => { //crea la variable jugar que coje los valores de int
 
     filaTeclas.forEach(letra => { // por cada letra --- la variable de antes
       const boton = document.createElement('button'); // crear la tecla como variable boton
+      boton.className = 'tecla';
       boton.textContent = letra;
       boton.setAttribute('data-key', letra);//le da a boton la letra tecla
       filaDiv.appendChild(boton); // meter el boton dentro de la fila
@@ -256,14 +257,14 @@ const finalizarPartida = (victoria) => {
   const resultadoTitulo = document.getElementById('resultado-titulo');
   const zerrenda = document.getElementById('historia-zerrenda');
 
-  resultadoTitulo.textContent = victoria ? '🎉 Irabazi duzu!' : `❌ Galduta! (Hitza: ${palabraAdivinar})`;
+  resultadoTitulo.textContent = victoria ? 'Irabazi duzu!' : `Galduta! (Hitza: ${palabraAdivinar})`;
   zerrenda.innerHTML = '';
 
   historial.forEach((p, idx) => {
     const item = document.createElement('div');
     item.className = 'partida-item';
     item.innerHTML = `
-      <strong>#${idx + 1} ${p.irabazi ? '✅ Irabazita' : '❌ Galduta'}</strong><br>
+      <strong>#${idx + 1} ${p.irabazi ? ' Irabazita' : ' Galduta'}</strong><br>
       Hitza: <b>${p.hitza}</b> | Saiakerak: ${p.saiakerak.length}<br>
       <small>${p.data}</small>
     `;
@@ -272,13 +273,6 @@ const finalizarPartida = (victoria) => {
 
   historiaDiv.style.display = 'block';
 };
-
-
-
-
-
-
-
 
 //El addEventListener va fuera de la función jugar al final del todo
 document.getElementById('btnJugar').addEventListener('click', jugar);
